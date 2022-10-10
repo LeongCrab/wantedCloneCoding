@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Ffavicon%2F144x144.png&w=60&q=90">
+    <title>채용 정보 | 원티드</title>
+    <link href="./wdlist.css" rel="stylesheet"></link>
+</head>
+<body>
+        <div id="headerDummy"></div>
+        <div id="header">
+            <div id="headerWrap">
+                <div class="headerItem">
+                    <button id="hamberger" onclick="menu()">
+                        <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&w=undefined&q=75" alt="No image." height="14px" width="17px" >
+                    </button>
+                    <a href="https://www.wanted.co.kr/">
+                        <img src="./wanted_BI_logotype.png" alt="top Logo." height="17px" width="74.38px">
+                    </a>
+                </div>
+                <div class="headerItem" id="navButton">
+                    <a href="https://www.wanted.co.kr/jobsfeed">채용</a>
+                    <a href="https://www.wanted.co.kr/events">이벤트</a>
+                    <a href="https://www.wanted.co.kr/salary">직군별 연봉</a>
+                    <a href="https://www.wanted.co.kr/cv/list">이력서</a>
+                    <a href="https://www.wanted.co.kr/community">커뮤니티<span>New</span></a>
+                    <a href="https://www.wanted.co.kr/gigs/experts">프리랜서</a>
+                    <a href="https://www.wanted.co.kr/aiscore/resume">AI 합격예측<span>Beta</span></a>
+                </div>
+                <div class="headerItem">
+                    <button id="searchButton" onclick="search()" ><img src="./search.png" alt="No Image." height="18px" width="18px" ></button>
+                    <button id="signUpButton" onclick="login()">회원가입/로그인</button>
+                    <div id="verticalLine"></div>
+                    <button id="enterpriseButton" onclick="location.href='https://www.wanted.co.kr/dashboard'">기업 서비스</button>
+                </div>
+            </div>
+        </div>
+        <div id="jobListCnt">
+            <div id="navBarCnt">
+                <div id="navBar">
+                    <div>
+                        <button id="jobGroup">
+                            <span class="jobGroupTitle">전체</span>
+                            <span class="moreButton">
+                                <svg xmlns="https://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12">
+                                    <path fill="#767676" fill-rule="nonzero" d="M2.28 3.22a.75.75 0 0 0-1.06 1.06l4.25 4.25a.75.75 0 0 0 1.06 0l4.25-4.25a.75.75 0 0 0-1.06-1.06L6 6.94 2.28 3.22z"></path>
+                                </svg>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="jobCategory">
+                        <div id="jobVertical">|</div>
+                        <div class="jobCategoryTitle">직군을 선택해주세요.</div>
+                    </div>
+                </div>
+            </div>
+            <div id="jobListWrap">
+                <div id="filter">
+                    <div id="filterWrap">
+                        <div class="buttonGroup">
+                            <button class="filterButton" onclick="selectArea()">
+                                <span class="buttonTitle">
+                                    지역
+                                    <span class="filterCount">1</span>
+                                </span>
+                                <span class="buttonDisplay">한국</span>
+                            </button>
+                            <div>
+                                <button class="filterButton" onclick="selectCareer()">
+                                    <span class="buttonTitle">경력</span>
+                                    <span class="buttonDisplay">신입</span>
+                                    <svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path d="M7.33334 0.494202C7.85691 0.494202 8.14842 1.1611 7.82205 1.61224L4.50038 6.20371C4.25071 6.54882 3.77503 6.54971 3.5243 6.20554L0.179295 1.61408C-0.149094 1.16332 0.14211 0.494202 0.666672 0.494202H7.33334Z" fill="#333333"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div>
+                                <button class="filterButton" onclick="selectTechStack()">
+                                    <span class="buttonTitle">
+                                        기술스택
+                                    </span>
+                                    <span class="buttonDisplay"></span>
+                                    <svg width="8" height="7" viewBox="0 0 8 7" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path d="M7.33334 0.494202C7.85691 0.494202 8.14842 1.1611 7.82205 1.61224L4.50038 6.20371C4.25071 6.54882 3.77503 6.54971 3.5243 6.20554L0.179295 1.61408C-0.149094 1.16332 0.14211 0.494202 0.666672 0.494202H7.33334Z" fill="#333333"></path>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+                        <select id="customSelect">
+                            <option>응답률순</option>
+                            <option>최신순</option>
+                            <option>보상금순</option>
+                            <option>인기순</option>
+                        </select>
+                    </div>
+                    <hr>
+                    <div id="tagFilter">
+                        <button class="jobTag">
+                            연봉이 최고의 복지
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F634f02e0-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75" alt="연봉이 최고의 복지" >
+                        </button>
+                        <button class="jobTag">
+                            재택근무
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F5d873f3a-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75" alt="재택근무">
+                        </button>
+                        <button class="jobTag">
+                            퇴사율 10% 이하
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F7d3cdb3c-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75" alt="퇴사율 10% 이하">
+                        </button>
+                        <button class="jobTag">
+                            급성장 중
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F37dacf86-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75" alt="급성장 중">
+                        </button>
+                        <button class="jobTag">
+                            병역특례
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F6eda33d2-9f6e-11ec-b909-0242ac120002.png&amp;w=50&amp;q=75" alt="병역특례">
+                        </button>
+                        <button class="jobTag">
+                            50인 이하
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F3a965d18-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75" alt="50인 이하️">
+                        </button>
+                        <button class="jobTag">
+                            50인 이상
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ftags%2F4cec3244-c524-11ec-901c-acde48001122.png&amp;w=50&amp;q=75" alt="50인 이상️">
+                        </button>
+                    </div>
+                    <hr>
+                </div>
+                <div id="jobList">
+                    <div id="bookmark">
+                        <button type="button">
+                            <svg width="13" height="17" viewBox="0 0 13 17" style="color: rgb(51, 102, 255);">
+                                <defs>
+                                    <path id="bookmarkIconFill" d="M6.25 13.21L.905 16.22c-.403.228-.905-.06-.905-.517V.596C0 .267.27 0 .605 0h11.29c.334 0 .605.267.605.596v15.107c0 .458-.502.745-.905.518L6.25 13.209z"></path>
+                                </defs>
+                                <g fill="none" fill-rule="evenodd" transform="translate(.188)">
+                                    <use fill="currentColor" xlink:href="#bookmarkIconFill"></use>
+                                </g>
+                            </svg>
+                            <span>북마크 모아보기</span>
+                            <svg width="12" height="12" viewBox="0 0 12 12">
+                                <path fill="currentColor" d="M4.22 9.72a.75.75 0 001.06 1.06l4.25-4.25a.75.75 0 000-1.06L5.28 1.22a.75.75 0 00-1.06 1.06L7.94 6 4.22 9.72z"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <h3 id="featured">적극 채용 중인 회사</h3>
+                    <div id="featuredWrap">
+                        <a class="featuredCard" href="https://www.wanted.co.kr/company/1355">
+                            <div class="featuredHeader">
+                                <img src="https://static.wanted.co.kr/images/company/1355/16906_2_0.__1080_790.jpg">
+                            </div>
+                            <div class="featuredFooter">
+                                <div class="featuredLogo" style="background-image: url(&quot;https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fwdes%2F0_5_01c06ee3-c3ec-4c81-8f3f-ab7418f1d75a.jpg&amp;w=100&amp;q=75&quot;); background-size: contain; background-color: rgb(255, 255, 255);"></div>
+                                <h4>탭조이코리아(Tapjoy)</h4>
+                                <h5>8개 포지션</h5>
+                            </div>
+                        </a>
+                        <a class="featuredCard" href="https://www.wanted.co.kr/company/2299">
+                            <div class="featuredHeader">
+                                <img src="https://static.wanted.co.kr/images/company/2299/csrdy9zbgjy5ne6d__1080_790.jpg">
+                            </div>
+                            <div class="featuredFooter">
+                                <div class="featuredLogo" style="background-image: url(&quot;https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fwdes%2F0_5.e44c0a94.jpg&amp;w=100&amp;q=75&quot;); background-size: contain; background-color: rgb(255, 255, 255);"></div>
+                                <h4>스페이스오디티(Space Oddity)</h4>
+                                <h5>5개 포지션</h5>
+                            </div>
+                        </a>
+                        <a class="featuredCard" href="https://www.wanted.co.kr/company/35903">
+                            <div class="featuredHeader">
+                                <img src="https://static.wanted.co.kr/images/company/35903/xbk7aqiygykq2crq__1080_790.jpg">
+                            </div>
+                            <div class="featuredFooter">
+                                <div class="featuredLogo" style="background-image: url(&quot;https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fwdes%2F0_5.5654364d.jpg&amp;w=100&amp;q=75&quot;); background-size: contain; background-color: rgb(255, 255, 255);"></div>
+                                <h4>롱기스트</h4>
+                                <h5>3개 포지션</h5>
+                            </div>
+                        </a>
+                        <a class="featuredCard" href="https://www.wanted.co.kr/company/3430">
+                            <div class="featuredHeader">
+                                <img src="https://static.wanted.co.kr/images/company/3430/4l6jjlieocixrohk__1080_790.jpg">
+                            </div>
+                            <div class="featuredFooter">
+                                <div class="featuredLogo" style="background-image: url(&quot;https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fwdes%2F0_5.568317ca.png&amp;w=100&amp;q=75&quot;); background-size: contain; background-color: rgb(255, 255, 255);"></div>
+                                <h4>스윗코리아</h4>
+                                <h5>7개 포지션</h5>
+                            </div>
+                        </a>
+                        <a class="featuredCard" href="https://www.wanted.co.kr/company/2237">
+                            <div class="featuredHeader">
+                                <img src="https://static.wanted.co.kr/images/company/2237/zya13wpnohi0uffa__1080_790.jpg">
+                            </div>
+                            <div class="featuredFooter">
+                                <div class="featuredLogo" style="background-image: url(&quot;https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fwdes%2F0_5.ad446faf.jpg&amp;w=100&amp;q=75&quot;); background-size: contain; background-color: rgb(255, 255, 255);"></div>
+                                <h4>스페이스워크</h4>
+                                <h5>7개 포지션</h5>
+                            </div>
+                        </a>
+                    </div>
+                    <ul>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/91370">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F19077%2F6qu0vur51f7mcof7__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">신약연구(바이오) 연구원</div>
+                                    <div class="jobCompany">크리스탈지노믹스</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">경기<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/80693">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F19077%2F6qu0vur51f7mcof7__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">의약화학 연구원</div>
+                                    <div class="jobCompany">크리스탈지노믹스</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">경기<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/130144">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F30722%2Fgyznvv4pwyjeuszp__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">법무팀 사원</div>
+                                    <div class="jobCompany">태강대부</div>
+                                    <div class="jobLabel"></div>
+                                    <div class="jobLocation">서울<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/126533">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F35428%2F6ba26d5ggqdwbh5l__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">F&B 크루</div>
+                                    <div class="jobCompany">엠오디 호텔카푸치노(코오롱그룹 호텔사업부)</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">서울<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/69881">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5466%2Fkhpxo8tk1emf8z1p__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">콘텐츠 디자이너</div>
+                                    <div class="jobCompany">러닝스푼즈</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">서울<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/130924">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31170%2Frrjdg2wrtwbsypjv__1080_790.png&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">그래픽 디자이너</div>
+                                    <div class="jobCompany">아우스월드와이드</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">서울<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/132153">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31829%2Fjnpo0nc96whq3m5x__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">F/W 개발 엔지니어 (for RADAR system)</div>
+                                    <div class="jobCompany">모본</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">서울<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a class="jobCard" href="https://www.wanted.co.kr/wd/103801">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F30705%2Fci4dbkqcqia7oogu__1080_790.jpg&w=1000&q=75">
+                                <button class="bookmarkButton" type="button" >
+                                    <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                        <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                    </svg>
+                                </button>
+                                <div class="jobCardBody">
+                                    <div class="jobPosition">[병역특례] 웹 개발자/SW 엔지니어 전문연구요원</div>
+                                    <div class="jobCompany">볼트앤너트</div>
+                                    <div class="jobLabel">
+                                        <div class="veryHighResponse">응답률 매우 높음</div>
+                                    </div>
+                                    <div class="jobLocation">서울<span>.</span>한국</div>
+                                    <div class="jobReward">채용보상금 1,000,000원</div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    <script src="./wdlist.js"></script>
+</body>
+</html>
