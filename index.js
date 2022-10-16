@@ -1,13 +1,58 @@
+// 커리어 태그 슬라이드
+{
+    let slides = document.querySelector('#career_slides');
+    let leftBtn = document.querySelector('#career_scrollSnap .arrowLeft');
+    let rightBtn = document.querySelector('#career_scrollSnap .arrowRight');
+
+    const tags = document.querySelectorAll('.careerTag, .careerTag_selected');
+    let tag_idx = 0;
+    leftBtn.addEventListener('click', () => {
+        tag_idx -= 3;
+        if (tag_idx < 0)
+            tag_idx = 0;
+        slides.scrollTo({left: tags[tag_idx].offsetLeft, behavior: 'smooth'});
+    });
+
+    rightBtn.addEventListener('click', () => {
+        tag_idx += 3;
+        if (tag_idx >= tags.length)
+            tag_idx = tags.length - 1;
+        slides.scrollTo({left: tags[tag_idx].offsetLeft, behavior: 'smooth'});
+    });
+
+    slides.addEventListener("scroll", () => {
+        if(slides.scrollLeft == slides.scrollWidth - slides.clientWidth)
+            rightBtn.style.visibility = 'hidden';
+        else
+            rightBtn.style.visibility = 'visible';
+        if(slides.scrollLeft == 0)
+            leftBtn.style.visibility = 'hidden';
+        else
+            leftBtn.style.visibility = 'visible';
+    });
+}
+
+//커리어 태그 클릭
+{
+    const tags = document.querySelectorAll('.careerTag, .careerTag_selected');
+    let selected = document.querySelector('.careerTag_selected');
+    tags.forEach( (tag) => {
+        tag.addEventListener('click', () => {
+            selected.classList.remove("careerTag_selected");
+            selected.classList.add('careerTag');
+            selected = tag;
+            tag.classList.remove('careerTag');
+            tag.classList.add('careerTag_selected');
+        });
+    });
+}
+
 function menu() {
     alert("메뉴");
 }
 
 function search() {
     alert("검색 아이콘");
-}
-
-function login() {
-    alert("회원가입/로그인 버튼");
 }
 
 function career() {

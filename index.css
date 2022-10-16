@@ -47,7 +47,7 @@ table {
 	border-spacing: 0;
 }
 
-/*시작*/
+/*Start*/
 
 *{
     box-sizing: border-box;
@@ -64,20 +64,40 @@ body{
     display: flex;
     flex-direction: column;
     width: 100vw;
+    overflow: auto;
 }
-
+button{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: none;
+}
 img{
     object-fit: cover;
 
 }
+#main img, #footer img{
+    border-radius: 4px;
+}
 a{
     text-decoration: none;
 }
+hr{
+    max-width: 1060px;
+    width: 90%;
+    height: 1px;
+    margin: 0;
+    border: none;
+    flex-shrink: 0;
+    background-color: #ececec;
+}
+
+/*header*/
 #headerDummy{
     height: 50px;
 }
 #header{
-    z-index: 9999; /*임시로 최댓값 */
+    z-index: 3;
     background-color: #FFF;
     height: 50px;
     position: fixed;
@@ -92,7 +112,7 @@ a{
     width: 87.72%;
     margin: 0 auto;
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
     align-items: center;
 }
@@ -103,6 +123,9 @@ a{
     display: flex;
     flex-direction: row;
     align-items: center;
+}
+.headerItem *{
+    white-space: nowrap;
 }
 .headerItem button{
     background-color: white;
@@ -115,7 +138,7 @@ a{
     margin: -2px 15px 0px 0px;
 }
 
-#header img{
+#header img, .modalHeader img{
     object-fit: contain;
 }
 
@@ -127,8 +150,8 @@ a{
     padding: 15px;
 }
 #navButton span{
-    position: fixed;
-    top: 10px;
+    position: absolute;
+    top: 5px;
     font-size: 9px;
     font-weight: 500;
     color: blue;
@@ -185,12 +208,12 @@ a{
 .topBannerInform{
     position: absolute;
     bottom: 28px;
-    left: 34px;
     width: 330px;
     height: 146px;
     border-radius: 4px;
     background-color: #fff;
     text-align: left;
+    left: 34px;
 }
 .topBannerInform h2{
     font-weight: 800;
@@ -207,13 +230,16 @@ a{
     margin: 0px 20px;
     font-size: 13px;
 }
-
 .topBannerInform hr{
-    box-sizing: content-box;
-    color:#bbbbbb;
+    height: 1px;
+    margin: 0;
+    border: none;
+    flex-shrink: 0;
+    background-color: #ececec;
+    width: 100%;
 }
-
 .topBannerInform a{
+    display: inline-block;
     color: blue;
     font-size: 14px;
     font-weight: 800;
@@ -226,6 +252,7 @@ a{
     margin: 0 auto;
 }
 .sectionWrap{
+    position: relative;
     max-width: 1060px;
     width: 87.72%;
     margin: 0px auto;
@@ -253,25 +280,39 @@ a{
     border: none;
 }
 #careerTagList{
-    max-width: 1060px;
-    width: 87.72%;
-    height: 40.5px;
-    margin : 30px 0;
+    position: relative;
 }
-
-#scrollWrap{
-    width: 1060px;
-    height: 40.5px;
-}
-
-.scrollSnap{
-    margin: 0 auto;
+.scrollWrap{
+    margin: 30px 0;
+    width: 100%;
     display: flex;
     flex-direction: row;
-    width: 1012px;
+    position: relative;
+    margin: 20px 0;
+    flex: 1 1;
     gap: 8px;
-    justify-content: space-between;
+}
+.scrollSnap{
+    max-width: calc(100% - 40px - 8px);
+    position: relative;
+    display: flex;
+}
+.scroll_slides{
+    gap: 8px;
+    display: flex;
+    padding-bottom: 0.5px;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior: contain;
+    flex-direction: row;
     align-items: center;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    z-index: 1;
+}
+
+.scroll_slides::-webkit-scrollbar{
+    width: 0;
+    height: 0;
 }
 
 .careerTag{
@@ -284,6 +325,71 @@ a{
     height: 40px;
     border-radius: 25px;
     min-width: 64px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    line-height: 146.7%;
+    display: flex;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+}
+.careerTag_selected{
+    background: #fff;
+    padding: 9px 22px;
+    font-weight: 600;
+    font-size: 15px;
+    color: #36f;
+    border: 1px solid #36f;
+    height: 40px;
+    border-radius: 25px;
+    min-width: 64px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
+    line-height: 146.7%;
+    display: flex;
+    outline: none;
+    position: relative;
+    cursor: pointer;
+}
+.tagSelected:hover{
+    background-color: #fff;
+}
+.careerTag:hover{
+    background-color: #f2f4f7;
+}
+.arrowButton{
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    align-items: center;
+    border: 1px solid #e1e2e3;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+    color: #939393;
+    border-radius: 50%;
+    text-align: center;
+    background-color: white;
+    z-index: 2;
+}
+#career_scrollSnap > .arrowLeft{
+    visibility: hidden;
+}
+.arrowLeft{
+    left: 0;
+}
+.arrowRight{
+    right: 0;
+}
+.tagMoreButton{
+    min-width: 34px;
+    min-height: 34px;
+    border: 1px solid #e1e2e3;
+    box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
+    border-radius: 4px;
+    color: #939393;
+    background-color: #fff;
+    outline: none;
+    line-height: 40px;
+    vertical-align: center;
 }
 #career ul{
     display: flex;
@@ -376,9 +482,7 @@ a{
     margin-bottom: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 8px;
+    justify-content: center;
 }
 
 .bannerTitle{
@@ -387,27 +491,7 @@ a{
     align-items: middle;
     justify-content: center;
 }
-.arrowButton{
-    background-color: white;
-    color: #939393;
-    border-radius: 50%;
-    border: 1px solid #e1e2e3;
-    width: 36px;
-    height: 36px;
-}
-.moreButton{
-    background-color: white;
-    border: 1px solid #e1e2e3;
-    width: 36px;
-    height: 36px;
-    box-shadow: 0 4px 4px rgb(0 0 0 / 5%);
-    border-radius: 4px;
-    color: #939393;
-    padding-bottom: 7px;
-    background-color: #fff;
-    outline: none;
-    font-weight: 700;
-}
+
 .bannerTitle div{
     margin-left: 4px;
     font-size: 22px;
@@ -578,21 +662,37 @@ a{
 #adWrap div{
     flex-grow: 1;
 }
-#adWrap div:first-child{
+.adLeft{
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: baseline;
 }
+.adTop{
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: flex-start;
+}
 #ad img{
     object-fit: contain;
 }
-#ad p:first-child{
+
+.adTop svg{
+    width: 160px!important;
+    height: 31px!important;
+    margin-top: 4px;
+    margin-right: 4px;
+}
+
+.adTop div{
+    word-break: keep-all;
     margin-top: 4px;
     font-size: 30px;
     font-weight: 700;
 }
-
+.adLeft p{
+    margin-top: 10px;
+}
 #ad a{
     width: 260px;
     height: 50px;
@@ -674,20 +774,19 @@ a{
     margin-left: 14px;
 }
 
-#footer hr{
-    box-sizing: content-box;
-    color:#bbbbbb;
-}
 #footerBottom{
     padding: 25px 0px 0px;
     display: flex;
     height: 60px;
 }
 #footerText{
-    height: 60px;
-    margin-right: 40px;
-    color: #767676;
+    float: left;
     font-size: 12px;
+    font-weight: 500;
+    line-height: 1.6666666667em;
+    color: #767676;
+    width: calc(100% - 290px);
+    margin-right: 40px;
 }
 #lang{
     width: 250px;
