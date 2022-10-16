@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon" href="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Ffavicon%2F144x144.png&w=60&q=90">
+    <title>[블루비커] 웹 프론트엔드 개발자 (React) 채용 | 원티드</title>
+    <link href="./wd91536.css" rel="stylesheet"></link>
+    <link href="./modal.css" rel="stylesheet"></link>
+</head>
+<body>
+    <div id="headerDummy"></div>
+    <div class="modal" id="signUpModal">
+        <div class="modalCnt">
+            <div class="modalHeader">
+                <img src="./img/wanted_BI_logotype.png" height="16px" width="70px">
+                <button class='modalCloseButton' id='signUpCloseButton' type="button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" color="#999">
+                        <path fill="currentColor" d="M17.97 19.03a.75.75 0 001.06-1.06l-6.5-6.5a.75.75 0 00-1.06 0l-6.5 6.5a.75.75 0 001.06 1.06L12 13.06l5.97 5.97zM12 10.94L6.03 4.97a.75.75 0 00-1.06 1.06l6.5 6.5a.75.75 0 001.06 0l6.5-6.5a.75.75 0 00-1.06-1.06L12 10.94z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modalBody">
+                <div id="textPanel">
+                    <h1>직장인을 위한<br>커리어 플랫폼, 원티드!</h1>
+                    <h2>커리어 성장과 행복을 위한 여정<br> 지금 원티드에서 시작하세요.</h2>
+                </div>
+                <div class="inputPanel">
+                    <div class="inputWrap">
+                        <label>이메일</label>
+                        <div class="inputBody">
+                            <input type="email" id="userEmail" placeholder="이메일을 입력해 주세요.">
+                        </div>
+                        <div class="modalError" id="emailError"></div>
+                    </div>
+                    <div id="inputPanelButtons">
+                        <button id="mailLogin" type="submit">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                                <g fill="none" fill-rule="evenodd" stroke="#FFF" stroke-width="2">
+                                    <rect width="17.2" height="14" x="3.4" y="5" rx="3"></rect>
+                                    <path d="M3.2 5.6L12 12l8.8-6.4"></path>
+                                </g>
+                            </svg>
+                            이메일로 계속하기
+                        </button>
+                        <div id="modalOr">or</div>
+                        <div id="modalSocialLogins">다음 계정으로 계속하기</div>
+                        <div id="modalSocialWrap">
+                            <div class="modalSocial">
+                                <button id="kakao">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="21" viewBox="0 0 22 21">
+                                        <path fill="#000" fill-rule="nonzero" d="M11 0C5.242 0 0 3.823 0 8.539c0 2.932 1.904 5.519 4.804 7.056l-1.22 4.479c-.107.397.343.712.69.483l5.348-3.548c.452.044.91.069 1.377.069 6.076 0 11-3.823 11-8.54 0-4.715-4.924-8.538-11-8.538"></path>
+                                    </svg>
+                                </button>
+                                <div class="modalSocialTitle">Kakao</div>
+                            </div>
+                            <div class="modalSocial">
+                                <button id="facebook">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="23" viewBox="0 0 12 23">
+                                        <path fill="#fff" fill-rule="nonzero" d="M11.214 12.603l.622-4.055h-3.89V5.917c0-1.11.543-2.191 2.285-2.191H12V.274S10.395 0 8.86 0C5.656 0 3.562 1.942 3.562 5.458v3.09H0v4.055h3.562v9.802c.714.112 1.446.17 2.191.17.746 0 1.478-.058 2.192-.17v-9.802h3.269"></path>
+                                    </svg>
+                                </button>
+                                <div class="modalSocialTitle">Facebook</div>
+                            </div>
+                            <div class="modalSocial">
+                                <button id="google">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23">
+                                        <g fill="none" fill-rule="nonzero">
+                                            <path fill="#EA4335" d="M11.5 4.574c1.688 0 3.204.58 4.396 1.72l3.299-3.299C17.203 1.14 14.6 0 11.5 0 7.005 0 3.115 2.577 1.223 6.335l3.842 2.98c.905-2.718 3.44-4.741 6.435-4.741z"></path>
+                                            <path fill="#4285F4" d="M22.54 11.761c0-.815-.073-1.6-.21-2.352H11.5v4.448h6.19c-.268 1.438-1.078 2.656-2.296 3.471v2.886h3.717c2.174-2.002 3.429-4.95 3.429-8.453z"></path>
+                                            <path fill="#FBBC05" d="M5.065 13.685c-.23-.69-.36-1.427-.36-2.185s.13-1.495.36-2.185v-2.98H1.223C.444 7.888 0 9.645 0 11.5c0 1.856.444 3.612 1.223 5.165l3.842-2.98z"></path>
+                                            <path fill="#34A853" d="M11.5 23c3.105 0 5.708-1.03 7.61-2.786l-3.716-2.886c-1.03.69-2.347 1.098-3.894 1.098-2.995 0-5.53-2.023-6.435-4.741H1.223v2.98C3.115 20.423 7.005 23 11.5 23z"></path>
+                                            <path d="M0 0L23 0 23 23 0 23z"></path>
+                                        </g>
+                                    </svg>
+                                </button>
+                                <div class="modalSocialTitle">Google</div>
+                            </div>
+                            <div class="modalSocial">
+                                <button id="apple">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="19" height="24" viewBox="0 0 19 24">
+                                        <path fill="#fff" fill-rule="nonzero" d="M15.868 12.55c.033 3.574 3.098 4.764 3.132 4.779-.026.084-.49 1.695-1.615 3.36-.972 1.439-1.982 2.872-3.572 2.902-1.562.03-2.065-.938-3.851-.938s-2.344.908-3.823.967c-1.535.059-2.704-1.556-3.684-2.99C.45 17.698-1.08 12.343.975 8.73c1.022-1.795 2.848-2.932 4.83-2.96 1.506-.03 2.929 1.026 3.85 1.026.921 0 2.65-1.27 4.467-1.083.761.032 2.897.31 4.268 2.343-.11.07-2.548 1.506-2.522 4.494m-2.936-8.777c.815-.999 1.363-2.389 1.213-3.772-1.174.048-2.594.792-3.437 1.79-.755.884-1.416 2.298-1.238 3.654 1.31.103 2.647-.673 3.462-1.672"></path>
+                                    </svg>
+                                </button>
+                                <div class="modalSocialTitle">Apple</div>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="modalInfo">
+                        걱정마세요! 여러분의 지원 활동은 SNS에 노출되지 않습니다.<br>
+                        회원가입 시 <a href="https://help.wanted.co.kr/hc/ko/articles/360035484292" target="_blank">개인정보 처리방침</a>과 <a href="https://help.wanted.co.kr/hc/ko/articles/360035844551" target="_blank">이용약관</a>을 확인하였으며, 동의합니다.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="modalOverlay" id="signUpOverlay"></div>
+    </div>
+    <div class="modal" id="joinModal">
+        <div class="modalCnt">
+            <div class="modalHeader">
+                회원가입
+                <button class='modalCloseButton' id='joinCloseButton' type="button">
+                    <svg width="24" height="24" viewBox="0 0 24 24" color="#999">
+                        <path fill="currentColor" d="M17.97 19.03a.75.75 0 001.06-1.06l-6.5-6.5a.75.75 0 00-1.06 0l-6.5 6.5a.75.75 0 001.06 1.06L12 13.06l5.97 5.97zM12 10.94L6.03 4.97a.75.75 0 00-1.06 1.06l6.5 6.5a.75.75 0 001.06 0l6.5-6.5a.75.75 0 00-1.06-1.06L12 10.94z"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="modalBody" id="joinModalBody">
+                <div class="inputPanel">
+                    <form name="joinForm">
+                        <div class="inputWrap">
+                            <label>이름</label>
+                            <div class="inputBody">
+                                <input name="name" class="joinInput" type="text" placeholder="이름을 입력해 주세요.">
+                            </div>
+                            <div class="modalError" id="nameInputError"></div>
+                        </div>
+                        <div class="inputWrap">
+                            <label>휴대폰 번호</label>
+                            <div class="inputBody">
+                                <div class="mobileInputSelect">
+                                    <span id="selected">대한민국 +82</span>
+                                    <select name="country">
+                                        <option value="+82" selected="selected">+82 South Korea</option><option value="+81">+81 Japan</option><option value="+886">+886 Taiwan</option><option value="+852">+852 Hong Kong</option><option value="+65">+65 Singapore</option><option value="+93">+93 Afghanistan</option><option value="+355">+355 Albania</option><option value="+213">+213 Algeria</option><option value="+244">+244 Angola</option><option value="+54">+54 Argentina</option><option value="+374">+374 Armenia</option><option value="+297">+297 Aruba</option><option value="+61">+61 Australia</option><option value="+43">+43 Austria</option><option value="+994">+994 Azerbaijan</option><option value="+973">+973 Bahrain</option><option value="+880">+880 Bangladesh</option><option value="+375">+375 Belarus</option><option value="+32">+32 Belgium</option><option value="+501">+501 Belize</option><option value="+229">+229 Benin</option><option value="+975">+975 Bhutan</option><option value="+591">+591 Bolivia</option><option value="+267">+267 Botswana</option><option value="+55">+55 Brazil</option><option value="+673">+673 Brunei</option><option value="+359">+359 Bulgaria</option><option value="+226">+226 Burkina Faso</option><option value="+855">+855 Cambodia</option><option value="+237">+237 Cameroon</option><option value=" +1"> +1 Canada</option><option value="+56">+56 Chile</option><option value="+86">+86 China</option><option value="+61">+61 Christmas Island</option><option value="+61">+61 Cocos Islands</option><option value="+57">+57 Colombia</option><option value="+269">+269 Comoros</option><option value="+506">+506 Costa Rica</option><option value="+385">+385 Croatia</option><option value="+53">+53 Cuba</option><option value="+599">+599 Curacao</option><option value="+357">+357 Cyprus</option><option value="+420">+420 Czech Republic</option><option value="+45">+45 Denmark</option><option value="+253">+253 Djibouti</option><option value="+593">+593 Ecuador</option><option value="+20">+20 Egypt</option><option value="+503">+503 El Salvador</option><option value="+240">+240 Equatorial Guinea</option><option value="+372">+372 Estonia</option><option value="+251">+251 Ethiopia</option><option value="+298">+298 Faroe Islands</option><option value="+679">+679 Fiji</option><option value="+358">+358 Finland</option><option value="+33">+33 France</option><option value="+689">+689 French Polynesia</option><option value="+220">+220 Gambia</option><option value="+995">+995 Georgia</option><option value="+49">+49 Germany</option><option value="+233">+233 Ghana</option><option value="+30">+30 Greece</option><option value="+299">+299 Greenland</option><option value="+502">+502 Guatemala</option><option value="+224">+224 Guinea</option><option value="+592">+592 Guyana</option><option value="+509">+509 Haiti</option><option value="+504">+504 Honduras</option><option value="+36">+36 Hungary</option><option value="+354">+354 Iceland</option><option value="+91">+91 India</option><option value="+62">+62 Indonesia</option><option value="+98">+98 Iran</option><option value="+964">+964 Iraq</option><option value="+353">+353 Ireland</option><option value="+972">+972 Israel</option><option value="+39">+39 Italy</option><option value="+962">+962 Jordan</option><option value="+7">+7 Kazakhstan</option><option value="+254">+254 Kenya</option><option value="+383">+383 Kosovo</option><option value="+965">+965 Kuwait</option><option value="+996">+996 Kyrgyzstan</option><option value="+856">+856 Laos</option><option value="+371">+371 Latvia</option><option value="+961">+961 Lebanon</option><option value="+218">+218 Libya</option><option value="+423">+423 Liechtenstein</option><option value="+370">+370 Lithuania</option><option value="+352">+352 Luxembourg</option><option value="+853">+853 Macau</option><option value="+389">+389 Macedonia</option><option value="+261">+261 Madagascar</option><option value="+265">+265 Malawi</option><option value="+60">+60 Malaysia</option><option value="+960">+960 Maldives</option><option value="+223">+223 Mali</option><option value="+356">+356 Malta</option><option value="+692">+692 Marshall Islands</option><option value="+222">+222 Mauritania</option><option value="+230">+230 Mauritius</option><option value="+52">+52 Mexico</option><option value="+373">+373 Moldova</option><option value="+976">+976 Mongolia</option><option value="+382">+382 Montenegro</option><option value="+212">+212 Morocco</option><option value="+258">+258 Mozambique</option><option value="+95">+95 Myanmar</option><option value="+264">+264 Namibia</option><option value="+977">+977 Nepal</option><option value="+31">+31 Netherlands</option><option value="+687">+687 New Caledonia</option><option value="+64">+64 New Zealand</option><option value="+505">+505 Nicaragua</option><option value="+227">+227 Niger</option><option value="+234">+234 Nigeria</option><option value="+47">+47 Norway</option><option value="+968">+968 Oman</option><option value="+92">+92 Pakistan</option><option value="+680">+680 Palau</option><option value="+970">+970 Palestine</option><option value="+507">+507 Panama</option><option value="+675">+675 Papua New Guinea</option><option value="+595">+595 Paraguay</option><option value="+51">+51 Peru</option><option value="+63">+63 Philippines</option><option value="+48">+48 Poland</option><option value="+351">+351 Portugal</option><option value="+974">+974 Qatar</option><option value="+262">+262 Reunion</option><option value="+40">+40 Romania</option><option value="+7">+7 Russia</option><option value="+250">+250 Rwanda</option><option value="+685">+685 Samoa</option><option value="+966">+966 Saudi Arabia</option><option value="+221">+221 Senegal</option><option value="+381">+381 Serbia</option><option value="+248">+248 Seychelles</option><option value="+232">+232 Sierra Leone</option><option value="+421">+421 Slovakia</option><option value="+386">+386 Slovenia</option><option value="+677">+677 Solomon Islands</option><option value="+252">+252 Somalia</option><option value="+27">+27 South Africa</option><option value="+211">+211 South Sudan</option><option value="+34">+34 Spain</option><option value="+94">+94 Sri Lanka</option><option value="+249">+249 Sudan</option><option value="+597">+597 Suriname</option><option value="+46">+46 Sweden</option><option value="+41">+41 Switzerland</option><option value="+963">+963 Syria</option><option value="+992">+992 Tajikistan</option><option value="+255">+255 Tanzania</option><option value="+66">+66 Thailand</option><option value="+228">+228 Togo</option><option value="+676">+676 Tonga</option><option value="+216">+216 Tunisia</option><option value="+90">+90 Turkey</option><option value="+993">+993 Turkmenistan</option><option value="+256">+256 Uganda</option><option value="+380">+380 Ukraine</option><option value="+971">+971 United Arab Emirates</option><option value="+44">+44 United Kingdom</option><option value="+1">+1 United States</option><option value="+598">+598 Uruguay</option><option value="+998">+998 Uzbekistan</option><option value="+678">+678 Vanuatu</option><option value="+58">+58 Venezuela</option><option value="+84">+84 Vietnam</option><option value="+967">+967 Yemen</option><option value="+260">+260 Zambia</option><option value="+263">+263 Zimbabwe</option>
+                                    </select>
+                                    <span>&gt;</span>
+                                </div>
+                                <div class="mobileInput">
+                                    <input name="mobileNumber" class="joinInput" placeholder="(예시) 01034567890">
+                                    <button id="mobileCodeButton" class="KoreaOnly" type="button" disabled>인증번호 받기</button>
+                                </div>
+                                <div class="mobileCode KoreaOnly">
+                                    <input name="mobileCode" class="joinInput" placeholder="인증번호를 입력해 주세요." disabled>
+                                    <button type="button" id="mobileCodeSubmit" disabled>확인</button>
+                                </div>
+                            </div>
+                            <div id="codeGuide" class="inputGuide"></div>
+                            <span id="timeCode"></span>
+                            <div class="modalError" id="mobileInputError"></div>
+                        </div>
+                        <div class="inputWrap">
+                            <label>비밀번호</label>
+                            <div class="inputBody">
+                                <input name="password" class="joinInput" type="password"  placeholder="비밀번호를 입력해 주세요.">
+                                <div class="inputGuide">영문 대소문자, 숫자, 특수문자를 3가지 이상으로 조합하여 8자 이상 입력해 주세요.</div>
+                            </div>
+                            <div class="modalError" id="pwError"></div>
+                        </div>
+                        <div class="inputWrap">
+                            <label>비밀번호 확인</label>
+                            <div class="inputBody">
+                                <input name="passwordAgain" class="joinInput" type="password" placeholder="비밀번호를 다시 한번 입력해 주세요.">
+                            </div>
+                            <div class="modalError" id="pwAgainError"></div>
+                        </div>
+                    </form>
+                    <form name="checkForm">
+                        <div class="agreeWrap">
+                            <div class="allCheckWrap">
+                                <div class="labelStyle">
+                                    <input type="checkbox" name="agreeAll">전체 동의
+                                </div>
+                            </div>
+                            <div class="checkWrap">
+                                <div class="labelStyle">
+                                    <input type="checkbox" name="agreePrivacy">개인정보 수집 및 이용 동의 (필수)
+                                    <a href="https://help.wanted.co.kr/hc/ko/articles/360040127872" target="_blank" class="agreeLink">자세히</a>
+                                </div>
+                            </div>
+                            <div class="checkWrap"> 
+                                <div class="labelStyle">
+                                    <input type="checkbox" name="agreeEventEmail">이벤트 소식 등 알림 정보 받기
+                                    <a href="https://help.wanted.co.kr/hc/ko/articles/360040540111" target="_blank" class="agreeLink">자세히</a>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modalFooter">
+                <div class="modalFooterWrap">
+                    <button type="submit" id="modalFooterButton" disabled>
+                        회원가입하기
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="modalOverlay" id="joinOverlay"></div>
+    </div>
+    <div id="header">
+        <div id="headerWrap">
+            <div class="headerItem">
+                <button id="hamberger" onclick="menu()">
+                    <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&w=undefined&q=75" alt="No image." height="14px" width="17px" >
+                </button>
+                <a href="https://www.wanted.co.kr/">
+                    <img src="./img/wanted_BI_logotype.png" alt="top Logo." height="17px" width="74.38px">
+                </a>
+            </div>
+            <div class="headerItem" id="navButton">
+                <a href="https://www.wanted.co.kr/jobsfeed">채용</a>
+                <a href="https://www.wanted.co.kr/events">이벤트</a>
+                <a href="https://www.wanted.co.kr/salary">직군별 연봉</a>
+                <a href="https://www.wanted.co.kr/cv/list">이력서</a>
+                <a href="https://www.wanted.co.kr/community">커뮤니티<span>New</span></a>
+                <a href="https://www.wanted.co.kr/gigs/experts">프리랜서</a>
+                <a href="https://www.wanted.co.kr/aiscore/resume">AI 합격예측<span>Beta</span></a>
+            </div>
+            <div class="headerItem">
+                <button id="searchButton" onclick="search()" >
+                    <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18"><defs><path id="qt2dnsql4a" d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"></path></defs><g fill="none" fill-rule="evenodd"><use fill="#333" fill-rule="nonzero" stroke="#333" stroke-width=".3" xlink:href="#qt2dnsql4a"></use></g></svg>
+                </button>
+                <button id="signUpButton">회원가입/로그인</button>
+                <div id="verticalLine"></div>
+                <button id="enterpriseButton" onclick="location.href='https://www.wanted.co.kr/dashboard'">기업 서비스</button>
+            </div>
+        </div>
+    </div>
+    <div class="jobDetailCnt">
+        <div class="jobDetailWrap">
+            <div class="jobDetail_relativeWrap">
+                <div class="jobContent">
+                    <section class="jobImage">
+                        <button class="jobImage_arrow jobImage_arrow_left">
+                            &lt;
+                        </button>
+                        <button class="jobImage_arrow jobImage_arrow_right">
+                            &gt;
+                        </button>
+                        <div class="jobImage_slides">
+                            <div class="jobImage_slide">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F22333%2Feh1mycy7nnltf5ah__1080_790.jpg&amp;w=1000&amp;q=75" alt="블루비커 - 웹 프론트엔드 개발자(React)">
+                            </div>
+                            <div class="jobImage_slide">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F22333%2Fdvcf627tgxatpg7v__1080_790.jpg&amp;w=1000&amp;q=75" alt="블루비커 - 웹 프론트엔드 개발자(React)">
+                            </div>
+                            <div class="jobImage_slide">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F22333%2F6kxgpommhvckijjr__1080_790.jpg&amp;w=1000&amp;q=75" alt="블루비커 - 웹 프론트엔드 개발자(React)">
+                            </div>
+                            <div class="jobImage_slide">
+                                <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F22333%2Fvym9cwwcigp2tzbi__1080_790.jpg&amp;w=1000&amp;q=75" alt="블루비커 - 웹 프론트엔드 개발자(React)">
+                            </div>
+                        </div>
+                    </section>
+                    <section class="jobHeader">
+                        <h2>웹 프론트엔드 개발자(React)</h2>
+                        <div>
+                            <h6>
+                                <a href="https://www.wanted.co.kr/company/22333">블루비커</a>
+                            </h6>
+                            <div class="responseLevel_style">
+                                <div class="tooltipCnt">
+                                    <button class="tooltip_label" type="button">
+                                        <div class="responseLevelCnt responseLevel_normal">
+                                            <span>응답률 평균 이상</span>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                            <span class="locationCnt">
+                                서울
+                                <span class="jobHeader_dot">.</span>
+                                한국
+                            </span>
+                            <div class="tags">
+                                <ul>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EC%9D%B8%EC%9B%90%EA%B8%89%EC%84%B1%EC%9E%A5">
+                                            #인원급성장
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=50%EB%AA%85%EC%9D%B4%ED%95%98">
+                                            #50명이하
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EC%84%A4%EB%A6%BD3%EB%85%84%EC%9D%B4%ED%95%98">
+                                            #설립3년이하
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EC%8A%A4%ED%86%A1%EC%98%B5%EC%85%98">
+                                            #스톡옵션
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EC%8A%A4%ED%83%80%ED%8A%B8%EC%97%85">
+                                            #스타트업
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EC%9B%8C%ED%81%AC%EC%83%B5">
+                                            #워크샵
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EA%B0%84%EC%8B%9D">
+                                            #간식
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=%EA%B1%B4%EA%B0%95%EA%B2%80%EC%A7%84">
+                                            #건강검진
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="https://www.wanted.co.kr/tag_search?tag=IT%2C%20%EC%BB%A8%ED%85%90%EC%B8%A0">
+                                            #IT, 컨텐츠
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <div class="descriptionWrap">
+                        <section class="description">
+                            <p><span>＜서비스 소개＞<br><br>✓ Medmap – 메디컬 지도를 펼치세요!<br>메드맵은 의료진과 환자간 커뮤니케이션을 도와주는 솔루션입니다.<br><br>【블루비커는】<br>블루비커는 3D 메디컬 콘텐츠 플랫폼 ‘Medmap’을 운영하고 있는 스타트업입니다.<br>환자와 의료진의 효과적인 커뮤니케이션의 새 기준을 제시하며 메디컬 커뮤니케이션 솔루션을 발전시켜 나가고 있습니다.<br>Medmap은 정확하고 다양한 3D 메디컬 콘텐츠를 제공하여 시술 원리와 과정을 쉽게 설명할 수 있도록 도와줍니다. 또한 환자의 이해를 돕고 신뢰도를 향상 시키며 재방문율을 높일 수 있습니다.<br>블루비커는 자유롭고 수평적인 분위기에서 각 분야 전문가인 동료들과 최대한의 능력을 발휘하며 함께하고 있습니다. 원하는 시간과 장소, 언제 어디서나, 블루비커와 함께 할 수 있습니다.<br><br>블루비커는 의료 분야 커뮤니케이션 서비스의 신규 개발과 고도화를 진행하고 있습니다. 다양한 최신 기술을 시도하고 접하실 수 있습니다. 저희 회사에 관심이 있다면 언제든지 귀한 능력을 받아들일 준비가 되어있습니다. 많은 지원 부탁드립니다.<br><br>【빠르게 성장하고 있습니다】<br>• 보건산업진흥원 혁신창업 멤버 선정 - 2019<br>• 디캠프 - 디데이 출전 - 2019<br>• 정주영 창업 경진 대회 우수상 - 2020<br>• 마이크로소프트 스타트업 프로그램 선발 -2020<br>• 소풍벤처스, 블루포인트 파트너스 시드 투자유치 - 2019/2020<br>• 청년창업사관학교 선발 서울 - 2021<br>• TIPS 프로그램 선정 - 2021<br>• 고려대학교구로병원 개방형 실험실 실증사업 선정 - 2022<br>• 리벤처스 Pre-A 투자유치 - 2022<br><br>【언론에서 소개된 블루비커】<br>• 블루비커, '세계보건의 날' 맞아 메디컬 일러스트 플랫폼 공식 론칭(2020.04.16)<br></span><a href="http://kr.aving.net/news/articleView.html?idxno=1564478" target="_blank">http://kr.aving.net/news/articleView.html?idxno=1564478</a><span><br>• 아이쿱-블루비커, 3D 환자 교육 콘텐츠 제휴 (2020.08.25)<br></span><a href="https://www.khanews.com/news/articleView.html?idxno=204038" target="_blank">https://www.khanews.com/news/articleView.html?idxno=204038</a><span><br>• 메디컬 커뮤니케이션 스타트업 ‘블루비커’, 마이크로소프트 애드인 공식 출시(2021.02.25)<br></span><a href="https://platum.kr/archives/158548" target="_blank">https://platum.kr/archives/158548</a><span></span></p>
+                            <h6>주요업무</h6>
+                            <p><span>✓ 블루비커와 함께 한국을 넘어 글로벌 무대에서도 메디컬 커뮤니케이션을 혁신 할 "웹 프론트 개발자"를 모십니다!<br><br>【주요업무】<br>• React 기반 웹 프론트엔드 개발<br>• 서비스 코드 최적화 및 성능 개선<br>• 운영 서비스의 유지보수 및 신규 서비스 론칭<br>• 주니어 개발자와 협업<br><br>[개발환경]<br>• 사용언어: React.js, Next.js, Redux<br>• 개발환경 및 도구: Github, Postman, Azure Cloud</span></p>
+                            <h6>자격요건</h6>
+                            <p><span>【자격요건】<br>• 웹 개발경력이 4년 이상이신 분<br>• React 전문성을 보유하신 분<br>• Modern Web, JavaScript, Typescript에 대한 깊은 이해가 있으신 분<br>• Github을 이용한 협업이 가능하신 분<br>• 다른 팀과 협업 및 커뮤니케이션에 능숙하신 분<br>• 성장하는 스타트업에서 함께 의미 있는 결과를 만들어 나가고 싶으신 분</span></p>
+                            <h6>우대사항</h6>
+                            <p><span>【우대사항】<br>• 요구사항을 파악하여 데이터 모델과 설계가 가능하신 분<br>• 기획, 디자인, 백엔드와 능동적인 협업 및 커뮤니케이션이 가능하신 분<br>• 주니어 개발자를 리딩하고 멘토링 가능하신 분</span></p>
+                            <h6>혜택 및 복지</h6>
+                            <p><span>【복지 및 혜택】<br><br>• 여름 방학, 겨울 방학<br>▶여름방학 3일, 겨울방학 3일 연차에 따른 휴가비를 추가 지원합니다.<br><br>• 자율출퇴근제<br>▶자율적인 출퇴근 시간 및 원격근무가 가능 합니다.<br><br>• 자기계발비 지원<br>▶세미나, 워크샵, 컨퍼런스, 업무 관련 도서구입비 등 팀원의 성장을 응원합니다.<br><br>• 건강검진비 지원<br>▶ 연 1회 종합건강검진 비용을 지원해 드립니다.<br><br>• 최고 사양의 개인장비 지원<br>▶ iMac, Macbook Pro, 데스크탑, 노트북 등 원하는 개인별 맞춤 디바이스 제공하여 최고의 업무환경을 제공해 드립니다.<br><br>•편리한 교통<br>▶ 1,4호선 서울역과 연결된 오피스 빌딩<br><br>•공유오피스<br>▶커뮤니티 매니저가 상시 관리하는 최신 시설의 오피스에서 근무합니다.<br>(에스프레소 머신, Tea, 간식 무제한 제공)<br><br>•청년내일채움공제<br>▶ 지원 대상인 모든 분들께 청년내일채움공제 가입<br><br>• 경조사비 지원<br>▶ 구성원 경조사 발생 시 근조화 및 경조비 지원해 드립니다.<br><br>• 자유로운 연차/반차 사용<br>▶ 업무 스케쥴만 괜찮다면 언제든지 사용 가능합니다.<br><br>• 스톡옵션 부여<br>▶ 기여한 만큼 인정받아요. 성과에 따라 스톡옵션 부여해 드립니다.<br><br>• 리프레쉬 휴가<br>▶3년, 5년, 7년 근속 시 리프레쉬 휴가를 제공합니다. <br><br><br>＜블루비커 개발팀 소개＞<br><br>✓ 저희 개발팀은 팀원 모두 새로운 기술과 방법을 도입하는데 주저하지 않고, 신기술에 대한 스터디와 공유를 즐기며 일하고 있습니다. 합류하시면 자율성과 소통을 바탕으로 좋은 동료들과 함께 일하는 기쁨을 느끼실 수 있을 것이라 확신합니다.<br>현재 개발팀은 백엔드, 프론트엔드, 그래픽스, Hololens 2, 네이티브 앱, 클라우드, 데이터베이스 파트로 구성되어 있습니다. 개발 팀은 내부 기획 파트, 디자인 파트, 그래픽스, 아티스트 파트와 협업 하여 바이오 메디컬 분야의 서비스 개발을 끊임없이 진행하고 있습니다.<br><br>【블루비커 기술 스택】<br>• React, WebGL, Unity, Spring Boot, .Net Core, Kotlin, Swift, Stored Procedure : 개발팀에서 서비스에 적용하고 있는 기술 스택입니다.<br><br>• MS Azure Cloud, Netlify : 우리는 마이크로소프트의 Azure Cloud 의 기술들을 서비스에 활용하고 있습니다. PaaS App 및 Serverless Functions 와 Static Web App 을 이용한 웹앱, Blob Storage 및 CDN 을 이용한 대용량 스토리지, Traffic Manager 와 FrontDoor를 이용한 분산처리, Notification Hub 와 PubSub 을 이용한 소켓통신 등을 사용합니다. 부하분산 처리가 필요하지 않은 단순한 웹 앱들은 Netlify 클라우드 서비스를 사용합니다.<br><br>• 그래픽스 : 자체적으로 개발한 국내 최고 수준의 WebGL 뷰어와, 마이크로소프트 Hololens2 의 서비스들을 개발합니다. Blender를 이용해서 모델링한 3D 에셋들을 활용하여 웹과 Hololens2에서 사용하기 위한 최적화를 진행하여 개발하고 있습니다.<br><br>【블루비커 개발 문화】<br>• CI/CD 파이프라인을 이용하며, 중요 서비스는 모두 스테이징 서버와 프로덕션 서버가 분리되어 있습니다.<br>• 초기 스타트업 특성상 다양한 아이디어를 빠르고 린하게 적용해야 하기 때문에 효율적인 개발 문화를 추구합니다.<br>• 개발 스택의 결정과 프로젝트의 설계는 모든 개발 팀원들의 토론을 통해 결정합니다.<br>• 코드 리뷰는 모든 개발 팀원들이 참가하여 본인이 개발하는 분야가 아닐지라도 함께 논의하고 분석합니다.<br>• 우리는 최신 기술 스택의 도입에 두려움을 가지지 않습니다. 새로운 기술에 대해 조사하고, 비교하고, 적용하는 과정을 통해 개발자는 한 단계 더 성장할 수 있다고 생각합니다.<br>• 주기적으로 일정 시간을 할애하여 외부 온/오프라인 교육을 받을 수 있도록 회사 차원에서 지원합니다. 교육을 통해서 서비스에 접목하고자 하는 아이디어가 떠오른다면 토론을 통해서 결정하고 진행합니다.<br>• 명확한 Task를 설정한 뒤 업무를 진행합니다. 상황에 따른 우선순위를 정하고 Teams Planner를 기반으로 1주 혹은 2주 단위의 느슨한 스프린트 방식으로 개발하고 있습니다.<br>• 개발자들은 중요한 기획안에 자신들의 아이디어를 제안하고, 기술적인 의견을 공유합니다.<br><br>【주요 협업 툴】<br>• 모든 소스코드들은 깃허브를 통해 관리되고, 통신 협업을 위해서 Postman 을 사용하고 있으며, 모든 기술 문서는 Notion으로 정리합니다.<br>• 전사적으로 마이크로소프트 Teams, Notion, Microsoft 365 서비스와 같은 SaaS 서비스를 적극 사용해서 구성원 개인 분들의 업무 효율을 높이는데 도움 드리고 있습니다.<br>• 모든 팀들은 Teams Planner를 통해 업무 및 일정 관리를 하고 있습니다.<br>• 프로덕트팀, 서비스개발팀, 마케팅팀과의 디자인 관련 업무는 Figma를 통해 협업하고 있습니다.<br><br><br>＜채용절차 및 유의사항＞<br><br>✓ 채용절차는 이렇게 진행됩니다.<br><br>1. 서류전형<br>• 블루비커는 자유양식의 지원서를 받고 있습니다. 본인의 강점이 잘 드러나는 다양한 정보를 알려주세요.<br>• 지원 시 본인의 이력서 또는 포트폴리오와 함께, 포지션과 유관하며 직접 작성한 “깃허브 주소” 혹은 “소스코드”를 첨부 및 제출해 주시기 바랍니다.<br>• 직접 운영 중인 개발 블로그나 서비스가 있다면 함께 보내주시면 적극 검토하겠습니다!<br>• 만약 제출이 어려운 경우, 개발팀에서 전달해드리는 과제를 수행해주시면 됩니다.<br><br>2. 1차 기술 인터뷰(온라인)<br>• 개발팀과 진행하는 직무 관련 인터뷰로, 지원서 상의 경력과 소스코드 및 과제 내용을 중심으로 진행됩니다.<br>• 1시간 가량 온라인 면접으로 진행됩니다.<br><br>3. 2차 임원 인터뷰(오프라인)<br>• 다른 직군의 팀원 및 경영진과 서로에 대해 조금 더 알아가는 시간입니다.<br>• 서로 추구하는 가치관과 생각 등에 대해 이야기하는 시간으로 약 1시간 가량 진행됩니다.<br><br>4. 최종합격<br>• 처우에 대해 최종적으로 협의 후, 입사 일자를 결정합니다.<br><br>✓ 블루비커에 관심을 갖고 지원해 주신 모든 분들의 서류를 정말 감사한 마음으로 읽어 보고 있습니다. 채용의 모든 전형에서 가능한 빠른 피드백을 드리고자 노력하겠습니다.</span></p>
+                            <h6>기술스택 ・ 툴</h6>
+                            <div class="description_skill_wrap">
+                                <div class="skillItem">Git</div>
+                                <div class="skillItem">Azure</div>
+                                <div class="skillItem">React</div>
+                                <div class="skillItem">JavaScript</div>
+                                <div class="skillItem">TypeScript</div>
+                                <div class="skillItem">Redux</div>
+                                <div class="skillItem">Next.js</div>
+                            </div>
+                        </section>
+                    </div>
+                    <hr class="jobContent_divider">
+                    <section class="jobWorkPlace">
+                        <div>
+                            <span class="content_header">마감일</span>
+                            <span class="content_body">상시</span>
+                        </div>
+                        <div>
+                            <span class="content_header">근무지역</span>
+                            <span class="content_body">서울 용산구 한강대로 366 트윈시티 남산 2 패스트파이브</span>
+                        </div>
+                        <a class="naverMap" href="https://map.naver.com/?dlevel=13&amp;pinTitle=서울특별시 용산구 한강대로 366 트윈시티 남산&amp;lat=37.5511247&amp;lng=126.9729133" target="_blank">
+                            <img alt="Map with company address" src="./img/wd91536.png">
+                        </a>
+                    </section>
+                    <section class="companyInfo">
+                        <button type="button" class="left">
+                            <div class="companyLogo" style="background-image: url(&quot;https://static.wanted.co.kr/images/wdes/0_5.0852ff23.jpg&quot;);"></div>
+                            <div>
+                                <h5>블루비커</h5>
+                                <h6>IT, 컨텐츠</h6>
+                            </div>
+                        </button>
+                        <button type="button" class="right">
+                            <span class="button_label">팔로우</span>
+                        </button>
+                    </section>
+                    <section>
+                        <div class="warning">
+                            <div class="warning_header">
+                                <svg class="" width="24" height="24" viewBox="0 0 24 24"><g fill="currentColor" fill-rule="evenodd"><path fill-rule="nonzero" d="M15.266 20.658A9.249 9.249 0 0112 21.25a9.25 9.25 0 010-18.5 9.21 9.21 0 016.54 2.71A9.217 9.217 0 0121.25 12a9.213 9.213 0 01-2.71 6.54.75.75 0 101.061 1.062A10.713 10.713 0 0022.75 12c0-2.89-1.146-5.599-3.149-7.601A10.717 10.717 0 0012 1.25C6.063 1.25 1.25 6.063 1.25 12S6.063 22.75 12 22.75c1.31 0 2.591-.235 3.794-.688a.75.75 0 10-.528-1.404z"></path><path d="M13 16a1 1 0 11-2 0 1 1 0 012 0"></path><path fill-rule="nonzero" d="M11.25 7v5a.75.75 0 101.5 0V7a.75.75 0 10-1.5 0z"></path></g></svg>
+                                <div class="warning_header_content">
+                                    <h5>
+                                        본 채용정보는 원티드랩의 동의없이 무단전재, 재배포, 재가공할 수 없으며, 구직활동 이외의<br>
+                                        용도로 사용할 수 없습니다.
+                                    </h5>
+                                    <button type="button" class="btn-open">V</button>
+                                </div>
+                            </div>
+                            <div class="warning_body">
+                                <p>
+                                    본 채용 정보는&nbsp;
+                                    <strong>블루비커</strong>
+                                    에서 제공한 자료를 바탕으로 원티드랩에서 표현을 수정하고 이의 배열 및 구성을 편집하여 완성한 원티드랩의 저작자산이자 영업자산입니다. 본 정보 및 데이터베이스의 일부 내지는 전부에 대하여 원티드랩의 동의 없이 무단전재 또는 재배포, 재가공 및 크롤링할 수 없으며, 게재된 채용기업의 정보는 구직자의 구직활동 이외의 용도로 사용될 수 없습니다. 원티드랩은 
+                                    <strong>블루비커</strong>
+                                    에서 게재한 자료에 대한 오류나 그 밖에 원티드랩이 가공하지 않은 정보의 내용상 문제에 대하여 어떠한 보장도 하지 않으며, 사용자가 이를 신뢰하여 취한 조치에 대해 책임을 지지 않습니다.&nbsp;
+                                    <strong>&lt;저작권자 (주)원티드랩. 무단전재-재배포금지&gt;</strong>
+                                </p>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                <aside class="jobProcessCnt">
+                    <header>
+                        <div class="rewardCnt">
+                            <h3>채용보상금</h3>
+                            <ul>
+                                <li>
+                                    <h4>추천인</h4>
+                                    <p>500,000원</p>
+                                </li>
+                                <li>
+                                    <h4>지원자</h4>
+                                    <p>500,000원</p>
+                                </li>
+                            </ul>
+                            <button class="shareBtn" type="button">
+                                <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" width="20" height="20" viewBox="0 0 19 19"><defs><path id="shareIcon" d="M5.336 7.75c-.551-.703-1.418-1.136-2.365-1.136C1.337 6.614 0 7.898 0 9.494c0 1.596 1.336 2.879 2.971 2.879.93 0 1.785-.419 2.338-1.102l8.495 4.482c.128.068.276.092.42.068l.025-.004c.213-.036.395-.173.489-.367.101-.21.249-.393.437-.54.673-.526 1.643-.407 2.168.266.526.673.407 1.643-.265 2.167-.673.526-1.643.407-2.168-.266-.226-.29-.644-.34-.933-.115-.29.226-.34.644-.115.933.977 1.251 2.783 1.473 4.034.496 1.25-.976 1.472-2.782.495-4.033-.977-1.251-2.783-1.473-4.033-.496-.169.132-.32.28-.454.442L5.478 9.858c-.322-.241-.816-.145-1 .255-.259.558-.844.93-1.507.93-.913 0-1.642-.7-1.642-1.55 0-.849.73-1.55 1.642-1.55.636 0 1.2.343 1.473.863.107.368.526.64.954.413l9.026-4.762.118-.079.029-.024c.233-.197.303-.527.169-.8-.104-.212-.158-.442-.158-.68 0-.853.692-1.545 1.544-1.545.853 0 1.545.692 1.545 1.544 0 .854-.691 1.545-1.545 1.545-.367 0-.664.297-.664.664 0 .367.297.665.664.665C17.714 5.747 19 4.46 19 2.873 19 1.287 17.713 0 16.126 0c-1.586 0-2.873 1.287-2.873 2.873 0 .224.026.445.076.66L5.336 7.748z"></path></defs><g fill="none" fill-rule="evenodd"><use fill="#36F" xlink:href="#shareIcon"></use></g></svg>
+                            </button>
+                        </div>
+                        <button class="bookmarkBtn" type="button">
+                            <svg width="13" height="17" viewBox="0 0 13 17" style="color: rgb(51, 102, 255);"><defs><path id="bookmarkIconLine" d="M1.481 1.481h9.382v10.727c0 .409.331.74.74.74.41 0 .741-.331.741-.74V.74c0-.41-.331-.741-.74-.741H.74C.33 0 0 .332 0 .74v14.814c0 .568.614.925 1.108.643l5.18-2.873 5.104 2.873c.355.203.807.08 1.01-.276.203-.355.08-.808-.275-1.01l-5.471-3.083c-.228-.13-.507-.13-.735 0l-4.44 2.45V1.48z"></path></defs><g fill="none" fill-rule="evenodd"><use fill="currentColor" xlink:href="#bookmarkIconLine"></use></g></svg>
+                            북마크하기
+                        </button>
+                        <button class="applyBtn" type="button">
+                            지원하기
+                        </button>
+                        <div class="reaction">
+                            <button class="likes" type="button">
+                                <img src="./img/likes.png" width="16px" height="16px">
+                                <span>9</span>
+                            </button>
+                            <button class="liker" type="button">
+                                <ul>
+                                    <li style="background-image: url(&quot;https://lh3.googleusercontent.com/a/AATXAJyptvBO9pOC55mAwO0IA3-llT_OIJ3QyPcS1-DN=s96-c&quot;), url(&quot;https://static.wanted.co.kr/images/userweb/profile_default.png&quot;);"></li>
+                                    <li style="background-image: url(&quot;https://k.kakaocdn.net/dn/chOGWm/btrJ7se3l3K/eeQiZuGgc7rBHKj9RBRFk1/img_110x110.jpg&quot;), url(&quot;https://static.wanted.co.kr/images/userweb/profile_default.png&quot;);"></li>
+                                    <li style="background-image: url(&quot;https://lh3.googleusercontent.com/a/ALm5wu2bYv18aK6_ahAXODnanhRHwCfEqvoUbqKJCBKA=s96-c&quot;), url(&quot;https://static.wanted.co.kr/images/userweb/profile_default.png&quot;);"></li>
+                                </ul>
+                            </button>
+                        </div>
+                    </header>
+                    <footer></footer>
+                </aside>
+            </div>
+            <div class="jobAssociated">
+                <h5 class="jobAssociated_title">이 포지션을 찾고 계셨나요?</h5>
+                <ul>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/91370">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F19077%2F6qu0vur51f7mcof7__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">신약연구(바이오) 연구원</div>
+                                <div class="jobCompany">크리스탈지노믹스</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">경기<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/80693">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F19077%2F6qu0vur51f7mcof7__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">의약화학 연구원</div>
+                                <div class="jobCompany">크리스탈지노믹스</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">경기<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/130144">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F30722%2Fgyznvv4pwyjeuszp__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">법무팀 사원</div>
+                                <div class="jobCompany">태강대부</div>
+                                <div class="jobLabel"></div>
+                                <div class="jobLocation">서울<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/126533">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F35428%2F6ba26d5ggqdwbh5l__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">F&B 크루</div>
+                                <div class="jobCompany">엠오디 호텔카푸치노(코오롱그룹 호텔사업부)</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">서울<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/69881">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F5466%2Fkhpxo8tk1emf8z1p__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">콘텐츠 디자이너</div>
+                                <div class="jobCompany">러닝스푼즈</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">서울<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/130924">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31170%2Frrjdg2wrtwbsypjv__1080_790.png&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">그래픽 디자이너</div>
+                                <div class="jobCompany">아우스월드와이드</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">서울<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/132153">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F31829%2Fjnpo0nc96whq3m5x__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">F/W 개발 엔지니어 (for RADAR system)</div>
+                                <div class="jobCompany">모본</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">서울<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="jobCard" href="https://www.wanted.co.kr/wd/103801">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fcompany%2F30705%2Fci4dbkqcqia7oogu__1080_790.jpg&w=1000&q=75">
+                            <button class="bookmarkButton" type="button" >
+                                <svg width="22" height="22" viewBox="0 0 18 18" fill="none" xmlns="https://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M3.58065 1C3.25997 1 3 1.26206 3 1.58533V16.4138C3 16.8632 3.48164 17.145 3.86873 16.922L9.00004 13.9662L14.1313 16.922C14.5184 17.145 15 16.8632 15 16.4138V1.58533C15 1.26206 14.74 1 14.4194 1H9.00004H3.58065ZM8.71195 12.7838C8.89046 12.681 9.10961 12.681 9.28812 12.7838L13.8387 15.4052V2.17067H9.00004H4.1613V15.4052L8.71195 12.7838Z" fill="white"></path>
+                                    <path d="M9.28812 12.7838C9.10961 12.681 8.89046 12.681 8.71195 12.7838L4.1613 15.4052V2.17067H9.00004H13.8387V15.4052L9.28812 12.7838Z" fill="black" fill-opacity="0.25"></path>
+                                </svg>
+                            </button>
+                            <div class="jobCardBody">
+                                <div class="jobPosition">[병역특례] 웹 개발자/SW 엔지니어 전문연구요원</div>
+                                <div class="jobCompany">볼트앤너트</div>
+                                <div class="jobLabel">
+                                    <div class="veryHighResponse">응답률 매우 높음</div>
+                                </div>
+                                <div class="jobLocation">서울<span>.</span>한국</div>
+                                <div class="jobReward">채용보상금 1,000,000원</div>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <button type="button" class="ribbonBannerCnt">
+            <div class="ribbonBannerWrap">
+                <div>
+                    <img src="./img/ribbonBanner_img.png">
+                    <span class="ribbonBanner_text">[ 서비스기획자 ] 3년차 3,500만원이면 잘 받는 건가요?</span>
+                </div>
+                <div class="ribbonBanner_btn">
+                    <span>더 알아보기</span>
+                </div>
+            </div>
+        </button>
+    </div>
+    <div id="footer">
+        <div id="footerWrap">
+            <div id="footerTop">
+                <div id="footerTopLeft">
+                    <div id="footerLogo">
+                        <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Flogo_wanted_black.png&w=110&q=100">
+                    </div>
+                    <a>기업소개</a>
+                    <a>이용약관</a>
+                    <a>개인정보 처리방침</a>
+                    <a>고객센터</a>
+                </div>
+                <div id="socialLink">
+                        <a href="https://www.instagram.com/wantedjobs.kr/">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_instagram.png&w=20&q=100">
+                        </a>
+                        <a href="https://www.youtube.com/channel/UC0tGZ6MqieGG2m5lA5PeQsw">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_youtube.png&w=25&q=100">
+                        </a>
+                        <a href="https://www.facebook.com/wantedkr">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_facebook.png&w=20&q=100">
+                        </a>
+                        <a href="https://blog.naver.com/wantedlab">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_blog.png&w=20&q=100">
+                        </a>
+                        <a href="https://pf.kakao.com/_XqCIxl">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_kakao.png&w=19&q=100">
+                        </a>
+                        <a href="https://post.naver.com/my.nhn?memberNo=18284175">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_post.png&w=20&q=100">
+                        </a>
+                        <a href="https://apps.apple.com/kr/app/id1074569961">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_apple.png&w=17&q=100">
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=com.wanted.android.wanted">
+                            <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Fuserweb%2Fsocial_google.png&w=17&q=100">
+                        </a>
+                </div>
+            </div>
+            <hr>
+            <div id="footerBottom">
+                <p id="footerText">
+                    (주)원티드랩 (대표이사:이복기) | 서울특별시 송파구 올림픽로 300 롯데월드타워 35층 | 통신판매번호 : 2020-서울송파-3147</br>
+                    유료직업소개사업등록번호 : (국내) 제2020-3230259-14-5-00018호 | (국외) 서울동부-유-2020-2 | 사업자등록번호 : 299-86-00021 | 02-539-7118</br>
+                    © Wantedlab, Inc.
+                </p>
+                <div>
+                    <img class="countryFlag" src="https://static.wanted.co.kr/images/userweb/ico_KR.svg" width="24px" height="17px">
+                    <select id="lang">
+                        <option value="Korea" selected="selected">한국 (한국어)</option>
+                        <option value="Japan">日本 (日本語)</option>
+                        <option value="Worldwide">Worldwide (English)</option>
+                        <option value="Singapore">Singapore (English)</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
+    <script src="./spinner.js"></script>
+    -->
+    <script src="./wd91536.js"></script>
+    <script src="./modal.js"></script>
+</body>
+</html>
