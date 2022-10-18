@@ -10,8 +10,8 @@
     <link href="./modal.css" rel="stylesheet"></link>
 </head>
 <body>
-    <div id="headerDummy"></div>
-    <div class = "modal" id="signUpModal">
+    <div class="headerDummy"></div>
+    <div class="modal" id="signUpModal">
         <div class="modalCnt">
             <div class="modalHeader">
                 <img src="./img/wanted_BI_logotype.png" height="16px" width="70px">
@@ -96,7 +96,7 @@
         </div>
         <div class="modalOverlay" id="signUpOverlay"></div>
     </div>
-    <div class = "modal" id="joinModal">
+    <div class="modal" id="joinModal">
         <div class="modalCnt">
             <div class="modalHeader">
                 회원가입
@@ -114,7 +114,7 @@
                             <div class="inputBody">
                                 <input name="name" class="joinInput" type="text" placeholder="이름을 입력해 주세요.">
                             </div>
-                            <div class="modalError" id="nameInputError"></div>
+                            <div class="modalError" id="nameError"></div>
                         </div>
                         <div class="inputWrap">
                             <label>휴대폰 번호</label>
@@ -188,17 +188,17 @@
         </div>
         <div class="modalOverlay" id="joinOverlay"></div>
     </div>
-    <div id="header">
-        <div id="headerWrap">
+    <div class="header">
+        <div class="headerWrap">
             <div class="headerItem">
-                <button id="hamberger" onclick="menu()">
+                <button class="hamberger" onclick="menu()">
                     <img src="https://image.wanted.co.kr/optimize?src=https%3A%2F%2Fstatic.wanted.co.kr%2Fimages%2Ficon-menu.png&w=undefined&q=75" alt="No image." height="14px" width="17px" >
                 </button>
                 <a href="https://www.wanted.co.kr/">
                     <img src="./img/wanted_BI_logotype.png" alt="top Logo." height="17px" width="74.38px">
                 </a>
             </div>
-            <div class="headerItem" id="navButton">
+            <div class="headerItem navButton">
                 <a href="https://www.wanted.co.kr/jobsfeed">채용</a>
                 <a href="https://www.wanted.co.kr/events">이벤트</a>
                 <a href="https://www.wanted.co.kr/salary">직군별 연봉</a>
@@ -208,12 +208,12 @@
                 <a href="https://www.wanted.co.kr/aiscore/resume">AI 합격예측<span>Beta</span></a>
             </div>
             <div class="headerItem">
-                <button id="searchButton" onclick="search()" >
+                <button class="searchButton" onclick="search()" >
                     <svg xmlns="https://www.w3.org/2000/svg" xmlns:xlink="https://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18"><defs><path id="qt2dnsql4a" d="M15.727 17.273a.563.563 0 10.796-.796l-4.875-4.875-.19-.165a.563.563 0 00-.764.028 5.063 5.063 0 111.261-2.068.562.562 0 101.073.338 6.188 6.188 0 10-1.943 2.894l4.642 4.644z"></path></defs><g fill="none" fill-rule="evenodd"><use fill="#333" fill-rule="nonzero" stroke="#333" stroke-width=".3" xlink:href="#qt2dnsql4a"></use></g></svg>
                 </button>
-                <button id="signUpButton">회원가입/로그인</button>
-                <div id="verticalLine"></div>
-                <button id="enterpriseButton" onclick="location.href='https://www.wanted.co.kr/dashboard'">기업 서비스</button>
+                <button class="signUpButton" id="signUpBtn">회원가입/로그인</button>
+                <div class="verticalLine"></div>
+                <button class="enterpriseButton" onclick="location.href='https://www.wanted.co.kr/dashboard'">기업 서비스</button>
             </div>
         </div>
     </div>
@@ -301,7 +301,6 @@
                                     <button class="careerTag">MD</button>
                                     <button class="careerTag">HR</button>
                                     <button class="careerTag">브랜딩</button>
-
                                 </div>
                                 <button class="arrowButton arrowLeft" type="button">&lt;</button>
                                 <button class="arrowButton arrowRight" type="button">&gt;</button>
@@ -410,12 +409,8 @@
             <hr class="divider">
             <div class="section" id="article">
                 <div class="sectionWrap" id="articleWrap">
-                    <button class="arrowButton arrowLeft" type="button">
-                        &lt;
-                    </button>
-                    <button class="arrowButton arrowRight" type="button">
-                        &gt;
-                    </button>
+                    <button class="arrowButton arrowLeft" type="button">&lt;</button>
+                    <button class="arrowButton arrowRight" type="button">&gt;</button>
                     <div class="bannerHead">
                         <div class="bannerTitle">
                             <div>3분만에 읽는 Wanted+ 아티클</div>
@@ -456,18 +451,14 @@
             </div>
             <hr class="divider">
             <div class="section" id="vod">
-                <div class=sectionWrap id="vodWrap">
+                <div class="sectionWrap" id="vodWrap">
+                    <button class="arrowButton arrowLeft" type="button">&lt;</button>
+                    <button class="arrowButton arrowRight" type="button">&gt;</button>
                     <div class="bannerHead">
-                        <button class="arrowButton arrowLeft" type="button">
-                            &lt;
-                        </button>
                         <div class="bannerTitle">
                             <div>직장인을 위한 Wanted+ VOD</div>
                             <a href="https://www.wanted.co.kr/wantedplus">VOD 전체 보기 &gt;</a>
                         </div>
-                        <button class="arrowButton arrowRight" type="button">
-                            &gt;
-                        </button>
                     </div>
                     <ul>
                         <li>
@@ -523,18 +514,14 @@
                 </a>
             </div>
             <div class="section" id="event">
-                <div class=sectionWrap id="eventWrap">
+                <div class="sectionWrap" id="eventWrap">
+                    <button class="arrowButton arrowLeft" type="button">&lt;</button>
+                    <button class="arrowButton arrowRight" type="button">&gt;</button>
                     <div class="bannerHead">
-                        <button class="arrowButton arrowLeft" type="button">
-                            &lt;
-                        </button>
                         <div class="bannerTitle">
                             <div>커리어 성장을 위한 맞춤 이벤트</div>
                             <a href="https://www.wanted.co.kr/events">이벤트 전체 보기 &gt;</a>
                         </div>
-                        <button class="arrowButton arrowRight" type="button">
-                            &gt;
-                        </button>
                     </div>
                     <div id="eventContainer">
                         <a class="eventItem" href="https://www.wanted.co.kr/events/talk85">
@@ -668,10 +655,8 @@
             </div>
         </div>
     </div>
-    <!--
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.js"></script>
     <script src="./spinner.js"></script>
-    -->
     <script src="./index.js"></script>
     <script src="./modal.js"></script>
 </body>

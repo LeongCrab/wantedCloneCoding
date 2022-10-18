@@ -74,13 +74,10 @@ button{
 }
 img{
     object-fit: cover;
-
-}
-#main img, #footer img{
-    border-radius: 4px;
 }
 a{
     text-decoration: none;
+    color: inherit;
 }
 hr{
     max-width: 1060px;
@@ -93,10 +90,10 @@ hr{
 }
 
 /*header*/
-#headerDummy{
+.headerDummy{
     height: 50px;
 }
-#header{
+.header{
     z-index: 3;
     background-color: #FFF;
     height: 50px;
@@ -106,7 +103,7 @@ hr{
     width: 100vw;
     border-bottom: 1px solid #ececec;
 }
-#headerWrap{
+.headerWrap{
     height: 100%;
     max-width: 1060px;
     width: 87.72%;
@@ -116,7 +113,7 @@ hr{
     justify-content: space-between;
     align-items: center;
 }
-#headerWrap *{
+.headerWrap *{
     font-weight: 600;
 }
 .headerItem{
@@ -132,61 +129,66 @@ hr{
     border: none;
 }
 
-#hamberger{
+.hamberger{
     height: 17px;
     width: 23px;
     margin: -2px 15px 0px 0px;
 }
 
-#header img, .modalHeader img{
+.header img, .modalHeader img{
     object-fit: contain;
 }
 
-#navButton a{
+.navButton a{
     position: relative;
     line-height: 20px;
     font-size: 14px;
     color: #333333;
     padding: 15px;
 }
-#navButton span{
+.navButton span{
     position: absolute;
     top: 5px;
     font-size: 9px;
     font-weight: 500;
     color: blue;
 }
-#navButton a:hover{
+.navButton a:hover{
     height: 48px;
     padding: 14px 15px;
     border-bottom: 2px solid #e1e2e3;
 }
-#searchButton{
+.searchButton{
     height: 30px;
     width: 38px;
     margin: 5px 0px 0px;
     padding: 0px 10px;
 }
-#signUpButton{
+.signUpButton{
     height: 30px;
     font-size: 14px;
     padding: 0px 15px;
 }
-#verticalLine{
+.verticalLine{
     margin: 10px;
     height: 10px;
     border-right: 1px solid #bbbbbb;
 }
-#enterpriseButton{
+.headerItem .enterpriseButton{
     height: 30px;
     text-align: center;
-    border: 1px solid #bbbbbb;
+    border: 1px solid #e1e2e3;
+    color: #666;
+    font-weight: 400;
     border-radius: 15px;
     font-size: 13px;
     padding: 0px 10px;
     margin-left: 10px;
 }
-
+/* main */
+#main img, #footer img{
+    border-radius: 4px;
+}
 #main{
     width: 100vw;
     border-bottom: 1px solid #bbbbbb;
@@ -240,7 +242,7 @@ hr{
 }
 .topBannerInform a{
     display: inline-block;
-    color: blue;
+    color: #3366FF;
     font-size: 14px;
     font-weight: 800;
     padding: 6px 8px;
@@ -625,7 +627,13 @@ hr{
 .eventContent{
     margin-top: 12px;
 }
+.eventTag{
+    display: flex;
+    gap: 10px;
+}
 .eventTagOnline{
+    line-height: 20px;
+    vertical-align: center;
     background: #1c1c1c;
     color: white;
     padding: 0px 6px;
@@ -634,6 +642,8 @@ hr{
     font-weight: 700;
 }
 .eventTagVOD{
+    line-height: 20px;
+    vertical-align: center;
     background: white;
     color: #5866DC;
     padding: 0px 6px;
@@ -742,6 +752,8 @@ hr{
     font-weight: 700;
     padding-top: 8px;
 }
+
+/*footer*/
 #footer{
     padding: 18px 0px 65px;
     margin: 0 auto;
