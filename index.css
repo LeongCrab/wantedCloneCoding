@@ -143,20 +143,12 @@ hr{
     position: absolute;
     top: 50px;
     z-index: 2;
-<<<<<<< HEAD
-=======
-    height: 100vh;
->>>>>>> c1fa83b8ad8e4e221e9297c10cfd8f7c8b8a3839
 }
 .menuWrap > ul{
     position: inherit;
     width: 200px;
     display: flex;
     flex-flow: column nowrap;
-<<<<<<< HEAD
-=======
-    height: 100vh;
->>>>>>> c1fa83b8ad8e4e221e9297c10cfd8f7c8b8a3839
     overflow-y: scroll;
     overflow-x: hidden;
     justify-content: flex-start;
