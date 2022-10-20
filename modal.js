@@ -1,6 +1,6 @@
 let body = document.getElementsByTagName("body");
 {
-    let signUpButton = document.getElementById("signUpButton");
+    let signUpButton = document.getElementById("signUpBtn");
     let signUpModal = document.getElementById("signUpModal");
     let signUpCloseButton = document.getElementById("signUpCloseButton");
     let signUpOverlay = document.getElementById("signUpOverlay");
@@ -53,7 +53,7 @@ let body = document.getElementsByTagName("body");
     mailLogin.addEventListener("click", () => {
         if (checkEmail(userEmail.value)) {
             emailError.innerText = "";
-            userEmail.style.borderColor = "#e1e2e3"
+            userEmail.style.borderColor = "#e1e2e3";
             userEmail.value = null;
             signUpModal.style.visibility = "hidden";
             signUpOverlay.style.visibility = "hidden";
@@ -201,7 +201,7 @@ let body = document.getElementsByTagName("body");
                 mobileCode.disabled = true;
                 mobileCodeSubmit.style.opacity = "0";
                 mobileCodeSubmit.disabled = true;
-                clearInterval(remainedTime); 
+                clearInterval(remainedTime);
             }
             limitTime--;
         }, 1000);
@@ -272,6 +272,12 @@ let body = document.getElementsByTagName("body");
         else if(password.value != passwordAgain.value){
             pwAgainError.innerText = "비밀번호를 다시 확인해주세요.";
             passwordAgain.style.borderColor = "red";
+        }
+        else{
+            alert("회원가입이 완료되었습니다.");
+            joinModal.style.visibility = "hidden";
+            joinOverlay.style.visibility = "hidden";
+            body.item(0).style.overflow = "auto";
         }
     });
     joinCloseButton.addEventListener("click", () => {

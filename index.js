@@ -1,23 +1,95 @@
+//헤더 드랍 다운
+{
+    let menu = document.querySelector(".menuWrap");
+    let hamburger = document.querySelector(".hamburger");
+    hamburger.addEventListener("mouseover", () => {
+        menu.style.display="block";
+    });
+    let header = document.querySelector('.header');
+    header.addEventListener("mouseleave", () => {
+        menu.style.display="none";
+    });
+}
+
+//탑 배너 슬라이드
+{
+    let banner = document.querySelector('#topBanner');
+    let slides = document.querySelector('.topBannerWrap');
+    let slide = document.querySelectorAll('.topBannerItem');
+    
+    window.onload =()=>{
+        const lastSlide = slide.item(slide.length - 1).cloneNode(true);
+        const firstSlide = slide.item(0).cloneNode(true);
+        slide.item(slide.length - 1).after(firstSlide);
+        slide.item(0).before(lastSlide);
+        slides.scrollTo({left: 1060, behavior: 'auto'});
+    }
+
+    let leftBtn = document.querySelector('.topBanner_arrow_left');
+    let rightBtn = document.querySelector('.topBanner_arrow_right');
+    let slide_idx = 0;
+    
+    let autoNext = setInterval(() => {
+        slide_idx += 1;
+        if (slide_idx < slide.length)
+            slides.scrollTo({left: 530 + slide_idx * 1060, behavior: 'smooth'});
+        else{
+            slide_idx = 0;
+            slides.scrollTo({left: 530, behavior: 'auto'});
+        }
+    }, 4000);
+
+    banner.addEventListener('mouseover', () => {
+        clearInterval(autoNext);
+    });
+
+    banner.addEventListener('mouseout', () => {
+        autoNext = setInterval(() => {
+            slide_idx += 1;
+            if (slide_idx < slide.length)
+                slides.scrollTo({left: 530 + slide_idx * 1060, behavior: 'smooth'});
+            else{
+                slide_idx = 0;
+                slides.scrollTo({left: 530, behavior: 'auto'});
+            }
+        }, 4000);
+    });
+    
+    leftBtn.addEventListener('click', () => {
+        slide_idx -= 1;
+        if (slide_idx >= 0)
+            slides.scrollTo({left: 530 + slide_idx * 1060, behavior: 'smooth'});
+        else{
+            slide_idx = slide.length - 1;   
+            slides.scrollTo({left: 530 + slide_idx * 1060, behavior: 'auto'});
+        }
+    });
+
+    rightBtn.addEventListener('click', () => {
+        slide_idx += 1;
+        if (slide_idx < slide.length)
+            slides.scrollTo({left: 530 + slide_idx * 1060, behavior: 'smooth'});
+        else{
+            slide_idx = 0;
+            slides.scrollTo({left: 530, behavior: 'auto'});
+        }
+    });
+}
+
 // 커리어 태그 슬라이드
 {
     let slides = document.querySelector('#career_slides');
     let leftBtn = document.querySelector('#career_scrollSnap .arrowLeft');
     let rightBtn = document.querySelector('#career_scrollSnap .arrowRight');
-
-    const tags = document.querySelectorAll('.careerTag, .careerTag_selected');
-    let tag_idx = 0;
+    let move = 300;
     leftBtn.addEventListener('click', () => {
-        tag_idx -= 3;
-        if (tag_idx < 0)
-            tag_idx = 0;
-        slides.scrollTo({left: tags[tag_idx].offsetLeft, behavior: 'smooth'});
+        let current = slides.scrollLeft;
+        slides.scrollTo({left: current - move, behavior: 'smooth'});
     });
 
     rightBtn.addEventListener('click', () => {
-        tag_idx += 3;
-        if (tag_idx >= tags.length)
-            tag_idx = tags.length - 1;
-        slides.scrollTo({left: tags[tag_idx].offsetLeft, behavior: 'smooth'});
+        let current = slides.scrollLeft;
+        slides.scrollTo({left: current + move, behavior: 'smooth'});
     });
 
     slides.addEventListener("scroll", () => {

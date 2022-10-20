@@ -63,7 +63,7 @@ body{
     color: #333333;
     display: flex;
     flex-direction: column;
-    width: 100vw;
+    width: 100%;
     overflow: auto;
 }
 button{
@@ -100,7 +100,7 @@ hr{
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     border-bottom: 1px solid #ececec;
 }
 .headerWrap{
@@ -129,16 +129,60 @@ hr{
     border: none;
 }
 
-.hamberger{
+.hamburger{
     height: 17px;
     width: 23px;
-    margin: -2px 15px 0px 0px;
+    margin: 4px 15px 0px 0px;
 }
 
 .header img, .modalHeader img{
     object-fit: contain;
 }
+.menuWrap{
+    display: none;
+    position: absolute;
+    top: 50px;
+    z-index: 2;
+<<<<<<< HEAD
+=======
+    height: 100vh;
+>>>>>>> c1fa83b8ad8e4e221e9297c10cfd8f7c8b8a3839
+}
+.menuWrap > ul{
+    position: inherit;
+    width: 200px;
+    display: flex;
+    flex-flow: column nowrap;
+<<<<<<< HEAD
+=======
+    height: 100vh;
+>>>>>>> c1fa83b8ad8e4e221e9297c10cfd8f7c8b8a3839
+    overflow-y: scroll;
+    overflow-x: hidden;
+    justify-content: flex-start;
+    align-items: flex-start;
 
+}
+.menuWrap > ul > li{
+    width: 100%;
+    background-color: #fff;
+    height: 40px;
+    padding: 0 20px;
+    line-height: 40px;
+    vertical-align: center;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: left;
+}
+.menuWrap > ul > li:hover{
+    color:#36f;
+    background-color: #e8f6fd;
+}
+.menuWrap > ul > li >span{
+    margin: 0 5px;
+    top: -3px;
+    position: relative;
+}
 .navButton a{
     position: relative;
     line-height: 20px;
@@ -190,22 +234,59 @@ hr{
     border-radius: 4px;
 }
 #main{
-    width: 100vw;
+    width: 100%;
     border-bottom: 1px solid #bbbbbb;
 }
 #mainWrap{
     padding-top: 25px;
     margin: 0 auto;
 }
+#topBanner{
+    position: relative;
+}
+.topBanner_arrow{
+    position: absolute;
+    top: 120px;
+    font-size: 16px;
+    height: 60px;
+    width: 30px;
+    border-radius: 15px;
+    background-color: #fff;
+    color: #1c1c1c;
+    opacity: .5;
+    z-index: 1;
+}
+.topBannerWrap::-webkit-scrollbar{
+    display: none;
+}
+.topBanner_arrow_left{
+    left: calc((100% - 1200px)/2);
+}
+.topBanner_arrow_right{
+    right:calc((100% - 1200px)/2);
+}
 .topBannerWrap{
+    display: flex;
+    flex-direction: row;
     margin: 0 auto;
     height: 300px;
-    width: 1084px;
     padding: 0px 12px;
+    scroll-snap-type: x mandatory;
+    overflow-x: visible;
+    overflow-y: hidden;
+    gap: 15px;
+}
+.topBannerItem > a > img{
+    width: 1060px;
+    height: 300px;
 }
 .topBannerItem{
     position: relative;
-    text-align: center;
+    scroll-snap-align: center;
+    flex-shrink: 0;
+}
+.displaying{
+    margin: 0 auto;
 }
 .topBannerInform{
     position: absolute;
@@ -217,7 +298,7 @@ hr{
     text-align: left;
     left: 34px;
 }
-.topBannerInform h2{
+.topBannerInform > h2{
     font-weight: 800;
     height: 30px;
     color: #333333;
@@ -225,14 +306,14 @@ hr{
     font-size: 20px;
     
 }
-.topBannerInform h3{
+.topBannerInform > h3{
     font-weight: 600;
     height: 44px;
     color: #333333;
     margin: 0px 20px;
     font-size: 13px;
 }
-.topBannerInform hr{
+.topBannerInform > hr{
     height: 1px;
     margin: 0;
     border: none;
@@ -240,7 +321,7 @@ hr{
     background-color: #ececec;
     width: 100%;
 }
-.topBannerInform a{
+.topBannerInform > a{
     display: inline-block;
     color: #3366FF;
     font-size: 14px;
@@ -249,7 +330,7 @@ hr{
     margin: 6px 0px 0px 13px;
 }
 .section{
-    width: 100vw;
+    width: 100%;
     padding: 60px 0px;
     margin: 0 auto;
 }
