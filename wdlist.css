@@ -165,7 +165,7 @@ a{
     padding: 0px 10px;
     margin-left: 10px;
 }
-
+/* main */
 #jobListCnt{
     min-height: calc(100vh - 50px);
 }
@@ -227,7 +227,6 @@ a{
     font-weight: 400;
     color: #aaa;
 }
-
 #jobListWrap{
     margin: 0 auto;
     padding: 20px 0 80px;
